@@ -16,13 +16,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnOK(View view) {
-        TextView txvLike = findViewById(R.id.textView2);
+        CheckBox chk;
+        TextView txvResult;
+        String msg = "";
 
 
         int[]id={R.id.checkBox,R.id.checkBox2,R.id.checkBox3,R.id.checkBox4};
 
-
+        for(int i:id){
+            chk = (CheckBox)findViewById(i);
+            if(chk.isChecked())
+                msg +="\n" + chk.getText();
         }
-
+        txvResult = findViewById(R.id.textView2);
+        txvResult.setText(msg);
     }
 }
